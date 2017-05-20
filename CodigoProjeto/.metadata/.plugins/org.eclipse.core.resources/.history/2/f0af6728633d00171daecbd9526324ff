@@ -10,14 +10,5 @@ public class Atendimento {
 	public void gerarSenha(){
 		
 	}
-	public void chamarSenha(){
-		
-	}
-	public void buscarOutraFila(){
-		
-	}
-	public void consultar(){
-		
-	}
 	
 }
