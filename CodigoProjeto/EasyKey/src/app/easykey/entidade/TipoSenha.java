@@ -1,4 +1,4 @@
-package br.cnec.fcsl.entidade;
+package app.easykey.entidade;
 
 public enum TipoSenha {
 	PREFERENCIAL("Preferêncial","Branco"), JUDICIARIO("Judiciário","Vermelho"), ALTO_CUSTO("Auto custo","Azul"), COMUM("Comum","Verde");

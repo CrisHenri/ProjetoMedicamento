@@ -1,4 +1,4 @@
-package br.cnec.fcsl.entidade;
+package app.easykey.entidade;
 
 import java.util.Calendar;
 

@@ -1,4 +1,4 @@
-package br.cnec.fcsl.entidade;
+package app.easykey.entidade;
 
 public enum StatusAtendente {
 	LIVRE("Livre"),OCUPADO("Ocupado");
