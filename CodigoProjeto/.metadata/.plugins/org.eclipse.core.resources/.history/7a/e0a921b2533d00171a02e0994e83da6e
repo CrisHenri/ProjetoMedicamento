@@ -1,0 +1,25 @@
+package br.cnec.fcsl.entidade;
+
+public enum TipoSenha {
+	PREFERENCIAL("Preferêncial"), JUDICIARIO("Judiciário"), ALTO_CUSTO("Auto custo"), COMUM("Comum");
+	
+	//atributo descrição do enum
+	private final String descricao;
+	
+	private TipoSenha(String descricao){
+		this.descricao = descricao;
+	}
+	
+	
+	
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+
+	public String toString() {
+		return descricao;
+	};
+
+}
