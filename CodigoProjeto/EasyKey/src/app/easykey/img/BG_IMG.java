@@ -36,9 +36,9 @@ public class BG_IMG extends JPanel {
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //Dimension dDesktop = this.getSize();
-        double width = 1250;
-        double height = 570;
+        Dimension dDesktop = this.getSize();
+        double width = 2000;
+        double height = 1050;
         Image background = new ImageIcon(this.image.getScaledInstance(
                 (int) width, (int) height, 1)).getImage();
         g.drawImage(background, 0, 0, this);

@@ -47,9 +47,10 @@ public class PrincipalFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public PrincipalFrame() {
-		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1250, 570);
+
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setForeground(Color.BLACK);
@@ -93,25 +94,25 @@ public class PrincipalFrame extends JFrame {
 		panel_nova_senha.setLayout(gl_panel_nova_senha);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane_1);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addContainerGap(755, Short.MAX_VALUE)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(1389, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(panel_nova_senha, GroupLayout.PREFERRED_SIZE, 380, GroupLayout.PREFERRED_SIZE)
 						.addComponent(panel_consulta, GroupLayout.PREFERRED_SIZE, 380, GroupLayout.PREFERRED_SIZE)
 						.addComponent(panel_senha, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(109))
+					.addGap(147))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(110)
+					.addGap(271)
 					.addComponent(panel_senha, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(panel_consulta, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(panel_nova_senha, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(125, Short.MAX_VALUE))
+					.addContainerGap(440, Short.MAX_VALUE))
 		);
 		GroupLayout gl_panel_senha = new GroupLayout(panel_senha);
 		gl_panel_senha.setHorizontalGroup(
