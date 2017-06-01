@@ -1,0 +1,32 @@
+package app.easykey.entidade;
+
+import java.awt.List;
+import java.util.Calendar;
+
+
+
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import br.cnec.fcsl.util.*;
+
+import br.cnec.fcsl.util.HibernateUtil;
+
+public class SenhaDao {
+	
+	Session session;
+	public SenhaDao(){
+		session= HibernateUtil.getSession();
+	}
+	
+	public void salvar(Senha senha){
+      session.getTransaction().begin();
+      session.saveOrUpdate(senha);
+      session.getTransaction().commit();
+	}
+	
+	public List<Senha> listarSenhas(TipoSenha tipo,Calendar data){
+		int pesquisa= tipo.ordinal();
+		Query query= (Query) session.createQuery("from Senha s where s.tipoSenha= :tipo");
+		
+	}
+}
