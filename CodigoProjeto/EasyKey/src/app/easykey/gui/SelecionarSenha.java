@@ -1,4 +1,4 @@
-package app.easykey.gui;
+ package app.easykey.gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -9,19 +9,26 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import app.easykey.entidade.TipoSenha;
 import app.easykey.img.BG_SELECIONAR_SENHA;
+import br.cnec.fcsl.controle.Controle;
 
 import java.awt.Dialog.ModalityType;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
+
 import javax.swing.LayoutStyle.ComponentPlacement;
+
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.GridLayout;
+
 import javax.swing.border.LineBorder;
 
 public class SelecionarSenha extends JDialog implements MouseListener {
@@ -38,6 +45,7 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 	private JLabel lblComum;
 	private JLabel lblJudicial;
 	private JLabel lblPreferencial;
+	private Controle controle= new Controle();
 
 	/**
 	 * Launch the application.
@@ -174,9 +182,17 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 		if (e.getSource() == lblPreferencial) {
 			do_lblPreferencial_mouseEntered(e);
 		}
+		if(e.getSource()== lblComum){
+			do_lblComum_mouseClicked(e);
+		}
 		
 	}
 	
+	private void do_lblComum_mouseClicked(MouseEvent e) {
+		controle.gerarSenha(TipoSenha.COMUM);//chama o método gerarSenha e passa o tipo de senha de acordo com o panel escolhido pelo usuário
+		
+	}
+
 	protected void do_lblFechar_mouseClicked(MouseEvent arg0) {
 		setVisible(false);
 		

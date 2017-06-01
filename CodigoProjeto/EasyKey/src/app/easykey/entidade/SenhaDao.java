@@ -19,11 +19,11 @@ public class SenhaDao {
 	public SenhaDao(){
 		session= HibernateUtil.getSession();
 	}
-	
-	public void salvar(Senha senha){
-      session.getTransaction().begin();
-      session.saveOrUpdate(senha);
-      session.getTransaction().commit();
+	//salva a senha no banco
+	public void salvar(Senha senha){//recebe a senha que irá ser salva como parâmetro
+      session.getTransaction().begin();//iniciando a sessão
+      session.saveOrUpdate(senha);//salva o objeto em memória 
+      session.getTransaction().commit();//Salva o objeto no banco de dados
 	}
 	
 	public List<Senha> listarSenhas(TipoSenha tipo,Calendar data){

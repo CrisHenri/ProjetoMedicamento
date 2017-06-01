@@ -1,0 +1,19 @@
+package br.cnec.fcsl.controle;
+
+public class Controle {
+
+	//Métodos de senha
+		public void gerarSenha(){
+			
+		}
+		public void chamarSenha(){
+			
+		}
+		public void buscarOutraFila(){
+			
+		}
+		public void consultar(){
+			
+		}
+		
+}

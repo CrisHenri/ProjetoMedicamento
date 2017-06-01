@@ -1,0 +1,29 @@
+package br.cnec.fcsl.controle;
+
+import java.util.Calendar;
+
+import app.easykey.entidade.Senha;
+import app.easykey.entidade.SenhaDao;
+import app.easykey.entidade.TipoSenha;
+
+public class Controle {
+		
+		SenhaDao senhaDb= new  SenhaDao();
+	//Métodos de senha
+		public void gerarSenha(TipoSenha tipoSenha){
+			Senha novaSenha= new Senha();
+			novaSenha.setData(Calendar.getInstance());
+			novaSenha.setSenha(tipoSenha);
+			senhaDb.salvar(novaSenha);
+		}
+		public void chamarSenha(){
+			
+		}
+		public void buscarOutraFila(){
+			
+		}
+		public void consultar(){
+			
+		}
+		
+}
