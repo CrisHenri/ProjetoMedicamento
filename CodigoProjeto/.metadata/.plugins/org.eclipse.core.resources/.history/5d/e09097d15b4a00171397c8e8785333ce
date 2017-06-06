@@ -47,7 +47,6 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 	private JLabel labelJudicial;
 	private JLabel labelPreferencial;
 	private Controle controle= new Controle();
-	private TipoSenha senha;
 
 	/**
 	 * Launch the application.
@@ -66,8 +65,7 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 	 * Create the dialog.
 	 */
 	public SelecionarSenha() {
-		setAutoRequestFocus(false);
-		//setModalityType(ModalityType.TOOLKIT_MODAL);
+		setModalityType(ModalityType.TOOLKIT_MODAL);
 		setBounds(100, 100, 1132, 570);
 		getContentPane().setLayout(new BorderLayout());
 		panelPrincipal.setLayout(new FlowLayout());
@@ -194,24 +192,23 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 		
 	}
 	private void do_labelPreferencial_mouseClicked(MouseEvent e){
-		int a=JOptionPane.showConfirmDialog(null, "Deseja gerar a senha preferencial?");
-		gerar(senha.PREFERENCIAL, a);//chama o método gerarSenha e passa o tipo de senha de acordo com o panel escolhido pelo usuário
+		JOptionPane.showConfirmDialog(null, "Deseja gerar a senha preferencial?");
+		controle.gerarSenha(TipoSenha.PREFERENCIAL);
 	}
 	
 	private void do_labelAltoCusto_mouseClicked(MouseEvent e){
-		int a=JOptionPane.showConfirmDialog(null, "Deseja gerar a senha Alto-custo?");
-		gerar(senha.ALTO_CUSTO, a);
+		JOptionPane.showConfirmDialog(null, "Deseja gerar a senha Alto-custo?");
+		controle.gerarSenha(TipoSenha.ALTO_CUSTO);
 	}
 	
 	private void do_labelJudicial_mouseClicked(MouseEvent e){
 		int a= JOptionPane.showConfirmDialog(null, "Deseja gerar a senha preferencial?");
-		gerar(senha.JUDICIARIO, a);
+		System.out.println(a);
+		//controle.gerarSenha(TipoSenha.JUDICIARIO);
 	}
 	
 	private void do_labelComum_mouseClicked(MouseEvent e) {
-		int a= JOptionPane.showConfirmDialog(null, "Deseja gerar a senha Comum?");
-		System.out.println(a);
-		gerar(senha.COMUM, a);
+		controle.gerarSenha(TipoSenha.COMUM);//chama o método gerarSenha e passa o tipo de senha de acordo com o panel escolhido pelo usuário
 		
 	}
 
@@ -252,10 +249,4 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 		// TODO Auto-generated method stub
 		
 	}
-	public void gerar(TipoSenha senha, int a){
-		if(a==0){//zero corresponde a opção sim no JOptionPane
-			controle.gerarSenha(senha);
-		}
-	}
-	
 }

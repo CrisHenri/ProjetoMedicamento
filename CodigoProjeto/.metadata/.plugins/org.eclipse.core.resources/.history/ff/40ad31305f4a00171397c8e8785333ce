@@ -253,7 +253,7 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 		
 	}
 	public void gerar(TipoSenha senha, int a){
-		if(a==0){//zero corresponde a opção sim no JOptionPane
+		if(a==1){
 			controle.gerarSenha(senha);
 		}
 	}

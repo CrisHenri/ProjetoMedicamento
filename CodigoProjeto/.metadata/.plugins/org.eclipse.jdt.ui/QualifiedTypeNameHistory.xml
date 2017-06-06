@@ -23,5 +23,7 @@
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="app.easykey.entidade.SenhaDao"/>
 <fullyQualifiedTypeName name="br.cnec.fcsl.controle.Controle"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="app.easykey.entidade.TipoSenha"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

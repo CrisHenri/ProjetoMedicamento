@@ -6,7 +6,6 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -42,12 +41,11 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 	private JLabel lblFechar;
 	private JLabel lblMinimizar;
 	private JPanel panelSenhas;
-	private JLabel labelAltoCusto;
-	private JLabel labelComum;
-	private JLabel labelJudicial;
-	private JLabel labelPreferencial;
+	private JLabel lbl_alto_custo;
+	private JLabel lblComum;
+	private JLabel lblJudicial;
+	private JLabel lblPreferencial;
 	private Controle controle= new Controle();
-	private TipoSenha senha;
 
 	/**
 	 * Launch the application.
@@ -66,8 +64,7 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 	 * Create the dialog.
 	 */
 	public SelecionarSenha() {
-		setAutoRequestFocus(false);
-		//setModalityType(ModalityType.TOOLKIT_MODAL);
+		setModalityType(ModalityType.TOOLKIT_MODAL);
 		setBounds(100, 100, 1132, 570);
 		getContentPane().setLayout(new BorderLayout());
 		panelPrincipal.setLayout(new FlowLayout());
@@ -116,24 +113,23 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 		);
 		panelSenhas.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		labelAltoCusto = new JLabel("");
-		labelAltoCusto.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_alto_custo.png")));
-		panelSenhas.add(labelAltoCusto);
+		lbl_alto_custo = new JLabel("");
+		lbl_alto_custo.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_alto_custo.png")));
+		panelSenhas.add(lbl_alto_custo);
 		
-		labelJudicial = new JLabel("");
-		labelJudicial.addMouseListener(this);
-		labelJudicial.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_judicial.png")));
-		panelSenhas.add(labelJudicial);
+		lblJudicial = new JLabel("");
+		lblJudicial.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_judicial.png")));
+		panelSenhas.add(lblJudicial);
 		
-		labelComum = new JLabel("");
-		labelComum.addMouseListener(this);
-		labelComum.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_comum.png")));
-		panelSenhas.add(labelComum);
+		lblComum = new JLabel("");
+		lblComum.addMouseListener(this);
+		lblComum.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_comum.png")));
+		panelSenhas.add(lblComum);
 		
-		labelPreferencial = new JLabel("");
-		labelPreferencial.addMouseListener(this);
-		labelPreferencial.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_preferencial.png")));
-		panelSenhas.add(labelPreferencial);
+		lblPreferencial = new JLabel("");
+		lblPreferencial.addMouseListener(this);
+		lblPreferencial.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_preferencial.png")));
+		panelSenhas.add(lblPreferencial);
 		panelPrincipal.setLayout(gl_panelPrincipal);
 	}
 	
@@ -141,15 +137,15 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 
 	
 	public void mouseEntered(MouseEvent arg0) {
-		if (arg0.getSource() == labelComum) {
+		if (arg0.getSource() == lblComum) {
 			do_lblComum_mouseEntered(arg0);
 		}
 		
-		if (arg0.getSource() == labelPreferencial) {
+		if (arg0.getSource() == lblPreferencial) {
 			do_lblPreferencial_mouseEntered(arg0);
 		}
 		
-		if (arg0.getSource() == labelJudicial) {
+		if (arg0.getSource() == lblJudicial) {
 			do_lblJudicial_mouseEntered(arg0);
 		}
 		
@@ -160,16 +156,17 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 	
 	
 	protected void do_lblComum_mouseEntered(MouseEvent arg0) {
-		labelComum.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_comum_hover.png")));
-		labelComum.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		lblComum.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_comum_hover.png")));
+		lblComum.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 	
 	protected void do_lblPreferencial_mouseEntered(MouseEvent arg0) {
-		labelPreferencial.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_preferencial_hover.png")));
-		labelPreferencial.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		lblPreferencial.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_preferencial_hover.png")));
+		lblPreferencial.setCursor(new Cursor(Cursor.HAND_CURSOR));
 	}
 	
 	protected void do_lblJudicial_mouseEntered(MouseEvent arg0) {
+		System.out.println("teste");
 	}
 	
 	protected void do_lblFechar_mouseEntered(MouseEvent arg0) {
@@ -182,50 +179,32 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 			do_lblFechar_mouseClicked(e);
 		}
 		
-		if (e.getSource() == labelPreferencial) {
+		if (e.getSource() == lblPreferencial) {
 			do_lblPreferencial_mouseEntered(e);
-		}if(e.getSource()== labelComum){
-			do_labelComum_mouseClicked(e);
-		}if(e.getSource()== labelJudicial){
-			do_labelJudicial_mouseClicked(e);
-		}if(e.getSource()== labelAltoCusto){
-			do_labelAltoCusto_mouseClicked(e);
+		}
+		if(e.getSource()== lblComum){
+			do_lblComum_mouseClicked(e);
 		}
 		
 	}
-	private void do_labelPreferencial_mouseClicked(MouseEvent e){
-		int a=JOptionPane.showConfirmDialog(null, "Deseja gerar a senha preferencial?");
-		gerar(senha.PREFERENCIAL, a);//chama o método gerarSenha e passa o tipo de senha de acordo com o panel escolhido pelo usuário
-	}
 	
-	private void do_labelAltoCusto_mouseClicked(MouseEvent e){
-		int a=JOptionPane.showConfirmDialog(null, "Deseja gerar a senha Alto-custo?");
-		gerar(senha.ALTO_CUSTO, a);
-	}
-	
-	private void do_labelJudicial_mouseClicked(MouseEvent e){
-		int a= JOptionPane.showConfirmDialog(null, "Deseja gerar a senha preferencial?");
-		gerar(senha.JUDICIARIO, a);
-	}
-	
-	private void do_labelComum_mouseClicked(MouseEvent e) {
-		int a= JOptionPane.showConfirmDialog(null, "Deseja gerar a senha Comum?");
-		System.out.println(a);
-		gerar(senha.COMUM, a);
+	private void do_lblComum_mouseClicked(MouseEvent e) {
+		controle.gerarSenha(TipoSenha.COMUM);//chama o método gerarSenha e passa o tipo de senha de acordo com o panel escolhido pelo usuário
 		
 	}
 
 	protected void do_lblFechar_mouseClicked(MouseEvent arg0) {
 		setVisible(false);
+		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		if (e.getSource() == labelComum) {
+		if (e.getSource() == lblComum) {
 			do_lblComum_mouseExisted(e);
 		}
 		
-		if (e.getSource() == labelPreferencial) {
+		if (e.getSource() == lblPreferencial) {
 			do_lblPreferencial_mouseExited(e);
 		}
 		
@@ -233,11 +212,11 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 	}
 	
 	public void do_lblComum_mouseExisted(MouseEvent e){
-		labelComum.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_comum.png")));
+		lblComum.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_comum.png")));
 	}
 	
 	public void do_lblPreferencial_mouseExited(MouseEvent e){
-		labelPreferencial.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_preferencial.png")));
+		lblPreferencial.setIcon(new ImageIcon(SelecionarSenha.class.getResource("/app/easykey/img/op_preferencial.png")));
 	}
 	
 
@@ -252,10 +231,4 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 		// TODO Auto-generated method stub
 		
 	}
-	public void gerar(TipoSenha senha, int a){
-		if(a==0){//zero corresponde a opção sim no JOptionPane
-			controle.gerarSenha(senha);
-		}
-	}
-	
 }

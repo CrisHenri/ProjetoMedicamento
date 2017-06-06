@@ -211,7 +211,7 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 	private void do_labelComum_mouseClicked(MouseEvent e) {
 		int a= JOptionPane.showConfirmDialog(null, "Deseja gerar a senha Comum?");
 		System.out.println(a);
-		gerar(senha.COMUM, a);
+		gerar(senha.JUDICIARIO, a);
 		
 	}
 
@@ -253,7 +253,7 @@ public class SelecionarSenha extends JDialog implements MouseListener {
 		
 	}
 	public void gerar(TipoSenha senha, int a){
-		if(a==0){//zero corresponde a opção sim no JOptionPane
+		if(a==1){
 			controle.gerarSenha(senha);
 		}
 	}
